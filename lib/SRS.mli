@@ -23,3 +23,5 @@ val set_no_forward : t -> bool -> unit
 val get_no_forward : t -> bool
 val set_no_reverse : t -> bool -> unit
 val get_no_reverse : t -> bool
+
+val make : string -> int -> int -> separator -> t
