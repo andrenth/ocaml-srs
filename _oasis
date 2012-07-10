@@ -1,0 +1,18 @@
+OASISFormat: 0.3
+Name:        srs
+Version:     0.1.0
+Synopsis:    OCaml SRS library
+Authors:     Andre Nathan
+License:     BSD3
+
+BuildTools:  ocamlbuild
+Plugins:     META (0.3)
+
+Library srs
+  Path:             lib
+  CompiledObject:   best
+  Modules:          SRS
+  CSources:         srs_stubs.c
+  CCLib:            -lsrs2
+  CCOpt:            -Wall -Werror
+  XMETADescription: OCaml SRS library

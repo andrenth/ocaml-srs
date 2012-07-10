@@ -1,0 +1,26 @@
+# OASIS_START
+# DO NOT EDIT (digest: 80627e683ff17bda25171f6416469bfb)
+# Ignore VCS directories, you can use the same kind of rule outside 
+# OASIS_START/STOP if you want to exclude directories that contains 
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library srs
+"lib/srs.cmxs": use_srs
+<lib/*.ml{,i}>: oasis_library_srs_ccopt
+"lib/srs_stubs.c": oasis_library_srs_ccopt
+<lib/srs.{cma,cmxa}>: oasis_library_srs_cclib
+"lib/libsrs_stubs.lib": oasis_library_srs_cclib
+"lib/dllsrs_stubs.dll": oasis_library_srs_cclib
+"lib/libsrs_stubs.a": oasis_library_srs_cclib
+"lib/dllsrs_stubs.so": oasis_library_srs_cclib
+<lib/srs.{cma,cmxa}>: use_libsrs_stubs
+# OASIS_STOP
