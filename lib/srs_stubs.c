@@ -78,7 +78,7 @@ caml_srs_forward(value srs_val, value sender_val, value alias_val)
     char *rewritten;
 
     ret = srs_forward_alloc(srs, &rewritten, sender, alias);
-    if (ret != 0)
+    if (ret != SRS_SUCCESS)
         srs_error(srs_strerror(ret));
 
     res = caml_copy_string(rewritten);
@@ -98,7 +98,7 @@ caml_srs_reverse(value srs_val, value sender_val)
     char *original;
 
     ret = srs_reverse_alloc(srs, &original, sender);
-    if (ret != 0)
+    if (ret != SRS_SUCCESS)
         srs_error(srs_strerror(ret));
 
     res = caml_copy_string(original);
@@ -122,7 +122,7 @@ caml_srs_set_separator(value srs_val, value sep_val)
     char sep = srs_sep_table[Int_val(sep_val)];
 
     ret = srs_set_separator(srs, sep);
-    if (ret == -1)
+    if (ret != SRS_SUCCESS)
         srs_error(srs_strerror(ret));
 
     CAMLreturn(Val_unit);
