@@ -32,3 +32,9 @@ let make secret max_age hash_len sep =
   set_hash_length srs hash_len;
   add_secret srs secret;
   srs
+
+let separator_of_string = function
+  | "+" -> Plus
+  | "-" -> Minus
+  | "=" -> Equals
+  | _ -> invalid_arg "SRS.separator_of_string"

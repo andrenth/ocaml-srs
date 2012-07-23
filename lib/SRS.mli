@@ -25,3 +25,4 @@ val set_no_reverse : t -> bool -> unit
 val get_no_reverse : t -> bool
 
 val make : string -> int -> int -> separator -> t
+val separator_of_string : string -> separator
