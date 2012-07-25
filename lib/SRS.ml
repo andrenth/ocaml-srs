@@ -1,10 +1,5 @@
 type t
 
-type separator
- = Plus
- | Minus
- | Equals
-
 exception SRS_error of string
 
 let _ = Callback.register_exception "SRS.SRS_error" (SRS_error "")
@@ -13,8 +8,8 @@ external create : unit -> t = "caml_srs_new"
 external add_secret : t -> string -> unit = "caml_srs_add_secret"
 external forward : t -> string -> string -> string = "caml_srs_forward"
 external reverse : t -> string -> string = "caml_srs_reverse"
-external set_separator : t -> separator -> unit = "caml_srs_set_separator"
-external get_separator : t -> separator = "caml_srs_get_separator"
+external set_separator : t -> char -> unit = "caml_srs_set_separator"
+external get_separator : t -> char = "caml_srs_get_separator"
 external set_max_age : t -> int -> unit = "caml_srs_set_maxage"
 external get_max_age : t -> int = "caml_srs_get_maxage"
 external set_hash_length : t -> int -> unit = "caml_srs_set_hashlength"
@@ -32,9 +27,3 @@ let make secret max_age hash_len sep =
   set_hash_length srs hash_len;
   add_secret srs secret;
   srs
-
-let separator_of_string = function
-  | "+" -> Plus
-  | "-" -> Minus
-  | "=" -> Equals
-  | _ -> invalid_arg "SRS.separator_of_string"

@@ -107,19 +107,13 @@ caml_srs_reverse(value srs_val, value sender_val)
     CAMLreturn(res);
 }
 
-static const char srs_sep_table[] = {
-    '+',
-    '-',
-    '=',
-};
-
 CAMLprim value
 caml_srs_set_separator(value srs_val, value sep_val)
 {
     CAMLparam2(srs_val, sep_val);
     int ret;
     srs_t *srs = (srs_t *)Data_custom_val(srs_val);
-    char sep = srs_sep_table[Int_val(sep_val)];
+    char sep = Int_val(sep_val);
 
     ret = srs_set_separator(srs, sep);
     if (ret != SRS_SUCCESS)
