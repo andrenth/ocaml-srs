@@ -21,9 +21,9 @@ external get_no_forward : t -> bool = "caml_srs_get_noforward"
 external set_no_reverse : t -> bool -> unit = "caml_srs_set_noreverse"
 external get_no_reverse : t -> bool = "caml_srs_get_noreverse"
 
-let make secret max_age hash_len sep =
+let make secrets max_age hash_len sep =
   let srs = create () in
   set_separator srs sep;
   set_hash_length srs hash_len;
-  add_secret srs secret;
+  List.iter (add_secret srs) secrets;
   srs
