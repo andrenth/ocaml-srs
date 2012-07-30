@@ -24,3 +24,5 @@
 "lib/dllsrs_stubs.so": oasis_library_srs_cclib
 <lib/srs.{cma,cmxa}>: use_libsrs_stubs
 # OASIS_STOP
+<*/*.ml>: annot
+<*/*.ml>: warn_error_A
