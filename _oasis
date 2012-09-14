@@ -8,7 +8,7 @@ License:     BSD3
 BuildTools:  ocamlbuild
 Plugins:     META (0.3)
 
-Library srs
+Library "srs"
   Path:             lib
   CompiledObject:   best
   Modules:          SRS
@@ -16,3 +16,10 @@ Library srs
   CCLib:            -lsrs2
   CCOpt:            -Wall -Werror
   XMETADescription: OCaml SRS library
+
+Document "srs"
+  Title:                SRS documentation
+  Type:                 ocamlbuild (0.3)
+  BuildTools+:          ocamldoc
+  XOCamlbuildPath:      lib
+  XOCamlbuildLibraries: srs
