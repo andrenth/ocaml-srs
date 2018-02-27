@@ -1,8 +1,8 @@
 type t
 
-exception SRS_error of string
+exception Error of string
 
-let _ = Callback.register_exception "SRS.SRS_error" (SRS_error "")
+let _ = Callback.register_exception "SRS.Error" (Error "")
 
 external create : unit -> t = "caml_srs_new"
 external add_secret : t -> string -> unit = "caml_srs_add_secret"

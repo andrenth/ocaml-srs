@@ -3,7 +3,7 @@
 type t
   (** The type of an SRS instance. *)
 
-exception SRS_error of string
+exception Error of string
   (** The exception raised by SRS functions in case of errors. *)
 
 val create : unit -> t

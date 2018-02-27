@@ -18,7 +18,7 @@
 static void
 srs_error(const char *err)
 {
-    caml_raise_with_string(*caml_named_value("SRS.SRS_error"), err);
+    caml_raise_with_string(*caml_named_value("Error"), err);
 }
 
 static void
