@@ -1,0 +1,7 @@
+(jbuild_version 1)
+
+(library
+ ((name srs)
+  (public_name srs)
+  (synopsis "OCaml bindings to libsrs2")
+  (c_names (srs_stubs))))
